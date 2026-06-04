@@ -2,67 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#05060a">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#02040a">
     <meta
       name="description"
-      content="AstranoV ChatGPT lab: a local-first client for the AstranoV AI router."
+      content="AstranoV ChatGPT lab: an orb-first collective intelligence surface routed through the AstranoV brain."
     >
     <title>AstranoV // ChatGPT</title>
+    <link rel="preconnect" href="https://eoimages.gsfc.nasa.gov">
     <link rel="stylesheet" href="./src/styles.css">
     <script src="./config.js"></script>
     <script type="module" src="./src/app.js"></script>
   </head>
   <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <button class="brand" id="brand-button" type="button" title="Reset session" aria-label="Reset session">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span class="brand-name">ASTRANOV</span>
-          <span class="brand-lab">// CHATGPT</span>
-        </button>
-        <div class="toolbar" aria-label="Session controls">
-          <button class="tool-button" id="locate-button" type="button" title="Acquire location" aria-label="Acquire location">
-            <span aria-hidden="true">LOC</span>
-          </button>
-          <button class="tool-button" id="clear-button" type="button" title="Clear history" aria-label="Clear history">
-            <span aria-hidden="true">CLR</span>
-          </button>
+    <main class="cosmos" id="cosmos">
+      <button class="brand" id="brand-button" type="button" aria-label="Heal and reload AstranoV">
+        ASTRANOV
+      </button>
+
+      <section class="earth-system" aria-label="AstranoV orbital operating surface">
+        <div class="starfield" aria-hidden="true"></div>
+        <div class="earth-wrap" id="earth-wrap" aria-hidden="true">
+          <img
+            class="earth-image"
+            src="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg"
+            alt=""
+          >
+          <div class="terminator"></div>
+          <div class="orbit-ring ring-inner"></div>
+          <div class="orbit-ring ring-middle"></div>
+          <div class="orbit-ring ring-outer"></div>
         </div>
-      </header>
 
-      <main class="workspace">
-        <section class="signal-board" aria-label="AstranoV signal">
-          <div class="earth-stage" aria-hidden="true">
-            <img
-              class="earth-image"
-              src="https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg"
-              alt=""
-            >
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="pulse-node node-one"></div>
-            <div class="pulse-node node-two"></div>
-            <div class="pulse-node node-three"></div>
-          </div>
-          <div class="signal-copy">
-            <p class="eyebrow">OpenAI route</p>
-            <h1>ChatGPT through the AstranoV brain.</h1>
-            <div class="status-line" id="status-line">Local memory online</div>
-          </div>
-        </section>
+        <div class="orb-layer" id="orb-layer" aria-label="Materialised AstranoV orbs"></div>
+      </section>
 
-        <section class="chat-panel" aria-label="ChatGPT lab conversation">
-          <div class="chat-header">
-            <div>
-              <p class="eyebrow">Session</p>
-              <h2>Collective intelligence channel</h2>
-            </div>
-            <div class="provider-lock" id="provider-lock">OPENAI MINI</div>
-          </div>
+      <button class="back-button" id="back-button" type="button" aria-label="Back">Back</button>
 
+      <button class="cic" id="cic-float" type="button" aria-label="Collective intelligence cycle">
+        <span class="cic-node cic-a"></span>
+        <span class="cic-node cic-b"></span>
+        <span class="cic-node cic-c"></span>
+        <span class="cic-core" id="cic-label">AI</span>
+      </button>
+
+      <button class="tray-trigger" id="tray-trigger" type="button" aria-label="Open drawer"></button>
+
+      <aside class="drawer" id="drawer" aria-label="AstranoV drawer" aria-hidden="true">
+        <div class="drawer-handle" aria-hidden="true"></div>
+        <div class="drawer-head">
+          <div>
+            <p class="eyebrow" id="drawer-eyebrow">AI in context</p>
+            <h1 id="drawer-title">AstranoV ChatGPT</h1>
+          </div>
+          <button class="icon-button" id="drawer-close" type="button" aria-label="Close drawer">x</button>
+        </div>
+
+        <section class="drawer-section active" id="panel-chat" data-panel="chat">
           <div class="messages" id="messages" aria-live="polite"></div>
-
           <form class="composer" id="composer" autocomplete="off">
             <div class="mode-strip" aria-label="Provider lock">
               <label>
@@ -80,14 +77,32 @@
                 name="prompt"
                 rows="1"
                 maxlength="4000"
-                placeholder="Ask AstranoV through ChatGPT..."
+                placeholder="Ask AstranoV..."
                 aria-label="Message"
               ></textarea>
               <button class="send-button" id="send-button" type="submit">Send</button>
             </div>
           </form>
         </section>
-      </main>
-    </div>
+
+        <section class="drawer-section" id="panel-status" data-panel="status">
+          <div class="status-grid">
+            <article><span>Router</span><strong id="status-line">Checking</strong></article>
+            <article><span>Provider</span><strong id="provider-lock">OPENAI MINI</strong></article>
+            <article><span>Mode</span><strong id="mode-line">SPARTAN</strong></article>
+            <article><span>Memory</span><strong id="memory-line">LOCAL</strong></article>
+          </div>
+        </section>
+
+        <section class="drawer-section" id="panel-actions" data-panel="actions">
+          <div class="action-grid">
+            <button type="button" id="locate-button">Locate</button>
+            <button type="button" id="clear-button">Clear History</button>
+            <button type="button" id="materialize-button">Materialise Orb</button>
+            <button type="button" id="dematerialize-button">Dematerialise</button>
+          </div>
+        </section>
+      </aside>
+    </main>
   </body>
 </html>
